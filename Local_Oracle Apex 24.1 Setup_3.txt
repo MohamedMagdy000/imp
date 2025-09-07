@@ -1,0 +1,61 @@
+- run cmd --> form prompt write 
+  cd c:\oracle\apex
+- write sqlplus / as sysdba
+- alter session set container = xepdb1;
+
+
+from sql> prompt
+ @apexins.sql sysaux sysaux temp /i/
+
+
+create instance admistration user
+sys> @apxchpwd.sql
+
+sys> @apex_rest_config.sql
+
+------------
+SELECT USERNAME,ACCOUNT_STATUS FROM DBA_USERS
+WHERE USERNAME LIKE 'APEX%'
+ORDER BY 1;
+========================
+
+alter user APEX_240100 identified by Oracle_1974 account unlock;
+alter user APEX_LISTENER identified by Oracle_1974 account unlock;
+--------------
+alter user APEX_PUBLIC_ROUTER identified by Oracle_1974 account unlock;
+---------------
+alter user APEX_PUBLIC_USER identified by Oracle_1974 account unlock;
+alter user APEX_REST_PUBLIC_USER identified by Oracle_1974 account unlock;
+
+-------------
+=========================
+=========================
+- setup jdk 17
+
+extract ords
+put in c:\oracle\ords
+
+in environment
+
+JAVA_TOOL_OPTIONS 
+-Dconfig.url=c:\oracle\ords
+
+from cmd
+c:\oracle\ords\"C:\Program Files\Java\jdk-17\bin\java" -jar ords.war install
+
+
+Install Apache Tomcat
+-----------------
+copy
+C:\Oracle\apex\images
+
+to
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps
+
+----
+copy
+C:\Oracle\ords\ords.war
+to
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps
+
+
