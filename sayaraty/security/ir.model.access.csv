@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sayaraty.access_vehicle_vehicle,access_vehicle_vehicle,model_vehicle_vehicle,base.group_user,1,1,1,1
+sayaraty.access_vehicle_cost,access_vehicle_cost,model_vehicle_cost,base.group_user,1,1,1,1
+sayaraty.access_vehicle_report_kpi,access_vehicle_report_kpi,model_vehicle_report_kpi,base.group_user,1,1,1,1

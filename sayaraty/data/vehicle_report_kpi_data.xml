@@ -1,0 +1,69 @@
+
+<odoo noupdate="1">
+    <record id="kpi_total_cars" model="vehicle.report.kpi">
+        <field name="code">total_cars</field>
+        <field name="name">إجمالي العربيات</field>
+        <field name="color_hex">#BBDEFB</field>
+    </record>
+    <record id="kpi_total_purchase" model="vehicle.report.kpi">
+        <field name="code">total_purchase</field>
+        <field name="name">إجمالي سعر الشراء</field>
+        <field name="color_hex">#C8E6C9</field>
+    </record>
+    <record id="kpi_sum_extra" model="vehicle.report.kpi">
+        <field name="code">sum_extra</field>
+        <field name="name">إجمالي التكاليف الإضافية</field>
+        <field name="color_hex">#FFE0B2</field>
+    </record>
+    <record id="kpi_sum_total_cost" model="vehicle.report.kpi">
+        <field name="code">sum_total_cost</field>
+        <field name="name">إجمالي التكلفة النهائية</field>
+        <field name="color_hex">#E1BEE7</field>
+    </record>
+    <record id="kpi_avg_total_cost" model="vehicle.report.kpi">
+        <field name="code">avg_total_cost</field>
+        <field name="name">متوسط التكلفة النهائية/عربية</field>
+        <field name="color_hex">#B2EBF2</field>
+    </record>
+    <record id="kpi_avg_extra" model="vehicle.report.kpi">
+        <field name="code">avg_extra</field>
+        <field name="name">متوسط التكلفة الإضافية/عربية</field>
+        <field name="color_hex">#FFF59D</field>
+    </record>
+    <record id="kpi_no_price" model="vehicle.report.kpi">
+        <field name="code">no_price</field>
+        <field name="name">بدون سعر شراء</field>
+        <field name="color_hex">#F8BBD0</field>
+    </record>
+    <record id="kpi_draft" model="vehicle.report.kpi">
+        <field name="code">draft_count</field>
+        <field name="name">مسودة</field>
+        <field name="color_hex">#D1C4E9</field>
+    </record>
+    <record id="kpi_available" model="vehicle.report.kpi">
+        <field name="code">available_count</field>
+        <field name="name">متاحة</field>
+        <field name="color_hex">#C8E6C9</field>
+    </record>
+    <record id="kpi_sold" model="vehicle.report.kpi">
+        <field name="code">sold_count</field>
+        <field name="name">مباعة</field>
+        <field name="color_hex">#FFCDD2</field>
+    </record>
+    <record id="kpi_archived" model="vehicle.report.kpi">
+        <field name="code">archived_count</field>
+        <field name="name">مؤرشفة</field>
+        <field name="color_hex">#CFD8DC</field>
+    </record>
+
+<record id="kpi_license_due" model="vehicle.report.kpi">
+    <field name="code">license_due</field>
+    <field name="name">رخصة بتنتهي قريبًا</field>
+    <field name="color_hex">#FFECB3</field>
+</record>
+<record id="kpi_oil_due" model="vehicle.report.kpi">
+    <field name="code">oil_due</field>
+    <field name="name">يحتاج تغيير زيت</field>
+    <field name="color_hex">#B2DFDB</field>
+</record>
+</odoo>
