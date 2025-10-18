@@ -1,0 +1,9 @@
+
+<odoo>
+    <menuitem id="menu_sayaraty_root" name="سيارتي" sequence="10"/>
+    <menuitem id="menu_sayaraty_vehicle" name="السيارات" parent="menu_sayaraty_root" action="action_vehicle" sequence="10"/>
+
+    <menuitem id="menu_sayaraty_reports" name="تقارير" parent="menu_sayaraty_root" sequence="20"/>
+    <menuitem id="menu_sayaraty_reports_kpi" name="لوحة المؤشرات" parent="menu_sayaraty_reports" action="action_vehicle_report_kpi" sequence="10"/>
+    <menuitem id="menu_sayaraty_reports_analysis" name="تحليل" parent="menu_sayaraty_reports" action="action_vehicle_analysis" sequence="20"/>
+</odoo>

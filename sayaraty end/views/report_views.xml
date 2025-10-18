@@ -1,0 +1,126 @@
+
+<odoo>
+    <!-- Dashboard record (Kanban style KPIs) -->
+    <record id="view_vehicle_report_kanban" model="ir.ui.view">
+        <field name="name">vehicle.report.kanban</field>
+        <field name="model">vehicle.report</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard" create="false">
+                <templates>
+                    <t t-name="kanban-box">
+    <div class="o_kanban_record">
+        <div class="o_kanban_details" style="padding: 8px 10px;">
+            <div class="kpi-grid" style="display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap:12px;">
+                <div class="kpi-card" style="background:#E3F2FD; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.total_cars.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">إجمالي العربيات</div>
+                </div>
+                <div class="kpi-card" style="background:#E8F5E9; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.total_purchase.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">إجمالي سعر الشراء</div>
+                </div>
+                <div class="kpi-card" style="background:#FFF3E0; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.sum_extra.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">إجمالي التكاليف الإضافية</div>
+                </div>
+                <div class="kpi-card" style="background:#F3E5F5; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.sum_total_cost.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">إجمالي التكلفة النهائية</div>
+                </div>
+                <div class="kpi-card" style="background:#E0F7FA; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.avg_total_cost.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">متوسط التكلفة النهائية/عربية</div>
+                </div>
+                <div class="kpi-card" style="background:#FFFDE7; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.avg_extra.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">متوسط التكلفة الإضافية/عربية</div>
+                </div>
+                <div class="kpi-card" style="background:#FCE4EC; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.no_price_count.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">بدون سعر شراء</div>
+                </div>
+
+                <div class="kpi-card" style="background:#EDE7F6; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.draft_count.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">مسودة</div>
+                </div>
+                <div class="kpi-card" style="background:#E8F5E9; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.available_count.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">متاحة</div>
+                </div>
+                <div class="kpi-card" style="background:#FFEBEE; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.sold_count.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">مباعة</div>
+                </div>
+                <div class="kpi-card" style="background:#ECEFF1; padding:16px; border-radius:10px;">
+                    <div style="font-size:22px; font-weight:700;" t-esc="record.archived_count.value or 0"/>
+                    <div style="opacity:.75; margin-top:4px;">مؤرشفة</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</t>
+                </templates>
+                <field name="name"/>
+                <field name="total_cars"/>
+                <field name="total_purchase"/>
+                <field name="sum_extra"/>
+                <field name="sum_total_cost"/>
+                <field name="avg_extra"/>
+                <field name="avg_total_cost"/>
+                <field name="no_price_count"/>
+                <field name="draft_count"/>
+                <field name="available_count"/>
+                <field name="sold_count"/>
+                <field name="archived_count"/>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_vehicle_reports_dashboard" model="ir.actions.act_window">
+        <field name="name">لوحة التقارير</field>
+        <field name="res_model">vehicle.report</field>
+        <field name="view_mode">kanban</field>
+        <field name="target">current</field>
+        <field name="domain" eval="[('id', '=', ref('sayaraty.vehicle_report_singleton'))]"/>
+        <field name="context">{}</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Graph & Pivot for vehicle.vehicle -->
+    <record id="view_vehicle_graph" model="ir.ui.view">
+        <field name="name">vehicle.vehicle.graph</field>
+        <field name="model">vehicle.vehicle</field>
+        <field name="arch" type="xml">
+            <graph string="تحليل السيارات" type="bar">
+                <field name="price" type="measure"/>
+                <field name="state" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_vehicle_pivot" model="ir.ui.view">
+        <field name="name">vehicle.vehicle.pivot</field>
+        <field name="model">vehicle.vehicle</field>
+        <field name="arch" type="xml">
+            <pivot string="تحليل السيارات">
+                <field name="price" type="measure"/>
+                <field name="state" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_vehicle_graph" model="ir.actions.act_window">
+        <field name="name">تحليل (Graph)</field>
+        <field name="res_model">vehicle.vehicle</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_vehicle_graph"/>
+    </record>
+
+    <record id="action_vehicle_pivot" model="ir.actions.act_window">
+        <field name="name">تحليل (Pivot)</field>
+        <field name="res_model">vehicle.vehicle</field>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="view_vehicle_pivot"/>
+    </record>
+</odoo>
