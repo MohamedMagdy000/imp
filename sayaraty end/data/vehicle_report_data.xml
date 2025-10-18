@@ -1,6 +1,0 @@
-
-<odoo noupdate="1">
-    <record id="vehicle_report_singleton" model="vehicle.report">
-        <field name="name">لوحة تقارير السيارات</field>
-    </record>
-</odoo>
